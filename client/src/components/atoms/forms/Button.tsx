@@ -4,7 +4,14 @@ interface ButtonProps {
 }
 
 const Button = ({ children, onClick }: ButtonProps) => {
-  return <button onClick={onClick ?? undefined}>{children}</button>;
+  return (
+    <button
+      className="p-2 text-text border-primary-base border rounded transition-all duration-300 ease-out hover:text-white hover:bg-primary-base"
+      onClick={onClick ?? undefined}
+    >
+      {children}
+    </button>
+  );
 };
 
 export default Button;

@@ -13,7 +13,7 @@ const Todo = ({ todo: { id, title, completed }, onChange }: TodoProps) => {
         checked={completed}
         onChange={() => onChange(id)}
       />
-      <span className="ml-2">{title}</span>
+      <span className="ml-2 text-text">{title}</span>
     </label>
   );
 };
