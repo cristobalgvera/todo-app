@@ -1,3 +1,4 @@
+import Divider from './components/atoms/ui/Divider';
 import TodoForm from './components/molecules/todos/TodoForm';
 import Todos from './components/molecules/todos/Todos';
 import Layout from './components/pages/Layout';
@@ -16,6 +17,7 @@ const todoItems: TodoItem[] = [
 const App = () => (
   <Layout>
     <TodoForm />
+    <Divider />
     <Todos todoItems={todoItems} />
   </Layout>
 );

@@ -7,7 +7,7 @@ interface TodoProps {
 
 const Todo = ({ todo: { id, title, completed }, onChange }: TodoProps) => {
   return (
-    <label>
+    <label className="font-bold">
       <input
         type="checkbox"
         checked={completed}
