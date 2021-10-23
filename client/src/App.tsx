@@ -1,4 +1,5 @@
-import Todos from './components/molecules/Todos';
+import TodoForm from './components/molecules/todos/TodoForm';
+import Todos from './components/molecules/todos/Todos';
 import Layout from './components/pages/Layout';
 import { TodoItem } from './types/TodoItem';
 
@@ -14,6 +15,7 @@ const todoItems: TodoItem[] = [
 
 const App = () => (
   <Layout>
+    <TodoForm />
     <Todos todoItems={todoItems} />
   </Layout>
 );

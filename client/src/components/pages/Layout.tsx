@@ -3,7 +3,7 @@ interface ILayoutProps {
 }
 
 const Layout = ({ children }: ILayoutProps) => (
-  <div className="h-screen bg-gray-600 flex items-center justify-center">
+  <div className="h-screen bg-gray-600 flex flex-col items-center justify-center">
     {children}
   </div>
 );
