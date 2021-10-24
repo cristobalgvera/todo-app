@@ -7,13 +7,19 @@ interface TodoProps {
 
 const Todo = ({ todo: { id, title, completed }, onChange }: TodoProps) => {
   return (
-    <label className="font-bold text-xl flex items-center">
+    <label
+      title={title}
+      className={`${
+        completed && 'line-through text-gray-400'
+      } text-text font-bold text-xl flex items-center pr-4 w-80 cursor-pointer`}
+    >
       <input
         type="checkbox"
+        className="text-primary-400 rounded"
         checked={completed}
         onChange={() => onChange(id)}
       />
-      <span className="ml-2 text-text">{title}</span>
+      <span className="ml-2 truncate">{title}</span>
     </label>
   );
 };

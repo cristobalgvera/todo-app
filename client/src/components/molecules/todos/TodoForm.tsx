@@ -1,24 +1,62 @@
-import { createRef } from 'react';
+import { createRef, useEffect } from 'react';
 import Button from '../../atoms/forms/Button';
 import Input from '../../atoms/forms/Input';
 
 interface TodoFormProps {
-  handleAddTodo: (todo: string) => void;
+  buttonText?: string;
+  placeholder?: string;
+  value?: string;
+  onSubmit: OnSubmit;
 }
 
-const TodoForm = ({ handleAddTodo }: TodoFormProps) => {
+type OnSubmit =
+  | {
+      currentTodoId: number;
+      handleUpdate: (id: number, todo: string) => void;
+      cancelEditing: () => void;
+    }
+  | { handleCreate: (todo: string) => void };
+
+const TodoForm = ({
+  onSubmit,
+  value,
+  buttonText = 'Add',
+  placeholder = 'Your To-do',
+}: TodoFormProps) => {
   const inputRef = createRef<HTMLInputElement>();
+
+  useEffect(() => {
+    const handleEscapeKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && 'cancelEditing' in onSubmit) {
+        onSubmit.cancelEditing();
+      }
+    };
+
+    window.addEventListener('keydown', handleEscapeKey);
+
+    return () => window.removeEventListener('keydown', handleEscapeKey);
+  }, [onSubmit]);
 
   const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (inputRef.current?.value) handleAddTodo(inputRef.current.value);
+    if (!inputRef.current?.value) return;
+
+    const todo = inputRef.current.value.trim();
+
+    if ('handleCreate' in onSubmit) {
+      onSubmit.handleCreate(todo);
+      return;
+    }
+
+    const { currentTodoId, handleUpdate } = onSubmit;
+    handleUpdate(currentTodoId, todo);
   };
 
   return (
     <form onSubmit={handleOnSubmit} className="flex gap-x-3">
-      <Input ref={inputRef} placeholder="Your To-do" />
-      <Button>Add</Button>
+      <Input ref={inputRef} value={value} placeholder={placeholder} />
+      <Button>{buttonText}</Button>
     </form>
   );
 };

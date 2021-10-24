@@ -33,15 +33,20 @@ const TodosLayout = () => {
     );
   };
 
+  const handleRemoveTodo = (id: number) => {
+    setTodos((prev) => prev.filter((todo) => todo.id !== id));
+  };
+
   return (
     <AppLayout>
-      <TodoForm handleAddTodo={handleAddTodo} />
+      <TodoForm onSubmit={{ handleCreate: handleAddTodo }} />
       <Divider />
       <Scrollable>
         <Todos
           todos={todos}
           onToggle={handleToggleTodo}
           onEdit={handleEditTodo}
+          onRemove={handleRemoveTodo}
         />
       </Scrollable>
     </AppLayout>

@@ -3,7 +3,7 @@ interface ScrollableProps {
 }
 
 const Scrollable = ({ children }: ScrollableProps) => {
-  return <div className="overflow-scroll h-60">{children}</div>;
+  return <div className="overflow-y-scroll h-60">{children}</div>;
 };
 
 export default Scrollable;

@@ -1,24 +1,55 @@
+import { useState } from 'react';
 import { TodoItem } from '../../../types/TodoItem';
-import Edition from '../../atoms/todos/Edition';
 import Todo from '../../atoms/todos/Todo';
+import TodoActions from './TodoActions';
+import TodoForm from './TodoForm';
 
 interface TodosProps {
   todos: TodoItem[];
   onToggle: (id: number) => void;
   onEdit: (id: number, title: string) => void;
+  onRemove: (id: number) => void;
 }
 
-const Todos = ({ todos, onToggle, onEdit }: TodosProps) => {
-  const onChange = (id: number) => onToggle(id);
+const Todos = ({ todos, onToggle, onEdit, onRemove }: TodosProps) => {
+  const [editing, setEditing] = useState<number | null>(null);
+
+  const handleEditing = (id: number | null) => {
+    setEditing(id);
+  };
+
+  const handleUpdate = (id: number, title: string) => {
+    onEdit(id, title);
+    cancelEditing();
+  };
+
+  const cancelEditing = () => {
+    setEditing(null);
+  };
 
   return (
-    <div className="flex flex-col gap-y-2 w-80">
+    <div className="flex flex-col gap-y-2 w-96 p-2">
       {todos.map((todo) => (
-        <div key={todo.id} className="flex justify-between items-center group">
-          <Todo todo={todo} onChange={() => onChange(todo.id)} />
-          <div>
-            <Edition />
-          </div>
+        <div
+          key={todo.id}
+          className="flex justify-between items-center group mr-2"
+        >
+          {editing === todo.id ? (
+            <TodoForm
+              onSubmit={{ currentTodoId: todo.id, handleUpdate, cancelEditing }}
+              buttonText="Save"
+              value={todo.title}
+              placeholder={todo.title}
+            />
+          ) : (
+            <>
+              <Todo todo={todo} onChange={() => onToggle(todo.id)} />
+              <TodoActions
+                onClickEdition={() => handleEditing(todo.id)}
+                onRemove={() => onRemove(todo.id)}
+              />
+            </>
+          )}
         </div>
       ))}
     </div>
