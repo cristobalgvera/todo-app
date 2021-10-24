@@ -35,13 +35,17 @@ public class TodoItem {
 
     @PreUpdate
     public void preUpdate() {
-        this.updateDate = new Date();
+        updateDate = new Date();
     }
 
     @PrePersist
     public void prePersist() {
-        this.creationDate = new Date();
-        this.completed = false;
+        creationDate = new Date();
+        completed = false;
+    }
+
+    public void toggleCompleted() {
+        completed = !completed;
     }
 
     @Override
