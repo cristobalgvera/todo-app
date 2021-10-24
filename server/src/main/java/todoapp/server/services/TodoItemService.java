@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-import todoapp.server.dtos.CreateTodoItemDto;
-import todoapp.server.dtos.UpdateTitleTodoItemDto;
+import todoapp.server.dtos.todoitem.CreateTodoItemDto;
+import todoapp.server.dtos.todoitem.UpdateTitleTodoItemDto;
 import todoapp.server.models.TodoItem;
 import todoapp.server.repositories.TodoItemRepository;
 

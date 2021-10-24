@@ -2,7 +2,9 @@ package todoapp.server.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.web.bind.annotation.RestController;
+import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -12,8 +14,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.ArrayList;
 
-@EnableSwagger2
 @Configuration
+@EnableSwagger2
+@Import(BeanValidatorPluginsConfiguration.class)
 public class SwaggerConfig {
     @Bean
     public Docket api() {

@@ -1,4 +1,4 @@
-package todoapp.server.dtos;
+package todoapp.server.dtos.todoitem;
 
 import todoapp.server.models.TodoItem;
 

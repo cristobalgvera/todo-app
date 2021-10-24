@@ -2,13 +2,15 @@ package todoapp.server.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import todoapp.server.dtos.CreateTodoItemDto;
-import todoapp.server.dtos.UpdateTitleTodoItemDto;
+import todoapp.server.dtos.todoitem.CreateTodoItemDto;
+import todoapp.server.dtos.todoitem.UpdateTitleTodoItemDto;
 import todoapp.server.models.TodoItem;
 import todoapp.server.services.TodoItemService;
 
+import javax.validation.Valid;
+
 @RestController
-@RequestMapping("/v1/todo-items")
+@RequestMapping(value = "/v1/todo-items", produces = "application/json")
 public class TodoItemController {
     private final TodoItemService todoItemService;
 
@@ -27,14 +29,14 @@ public class TodoItemController {
     }
 
     @PostMapping
-    public TodoItem create(@RequestBody CreateTodoItemDto createTodoItemDto) {
+    public TodoItem create(@Valid @RequestBody CreateTodoItemDto createTodoItemDto) {
         return todoItemService.create(createTodoItemDto);
     }
 
     @PatchMapping("/{id}")
     public TodoItem updateTitle(
             @PathVariable Long id,
-            @RequestBody UpdateTitleTodoItemDto updateTitleTodoItemDto
+            @Valid @RequestBody UpdateTitleTodoItemDto updateTitleTodoItemDto
     ) {
         return todoItemService.updateTitle(id, updateTitleTodoItemDto);
     }
