@@ -1,4 +1,4 @@
-import { TodoItem } from '../../types/TodoItem';
+import { TodoItem } from '../../../types/TodoItem';
 
 interface TodoProps {
   todo: TodoItem;
@@ -7,7 +7,7 @@ interface TodoProps {
 
 const Todo = ({ todo: { id, title, completed }, onChange }: TodoProps) => {
   return (
-    <label className="font-bold">
+    <label className="font-bold text-xl flex items-center">
       <input
         type="checkbox"
         checked={completed}

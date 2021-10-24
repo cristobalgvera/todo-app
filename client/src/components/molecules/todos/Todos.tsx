@@ -1,20 +1,25 @@
 import { TodoItem } from '../../../types/TodoItem';
-import Todo from '../../atoms/Todo';
+import Edition from '../../atoms/todos/Edition';
+import Todo from '../../atoms/todos/Todo';
 
 interface TodosProps {
-  todoItems: TodoItem[];
+  todos: TodoItem[];
+  onToggle: (id: number) => void;
+  onEdit: (id: number, title: string) => void;
 }
 
-const Todos = ({ todoItems }: TodosProps) => {
-  const onChange = (id: number) => {
-    // TODO: Add todo item toggle
-    console.log(`Todo ${id} was clicked`);
-  };
+const Todos = ({ todos, onToggle, onEdit }: TodosProps) => {
+  const onChange = (id: number) => onToggle(id);
 
   return (
-    <div className="flex flex-col">
-      {todoItems.map((todo) => (
-        <Todo key={todo.id} todo={todo} onChange={onChange} />
+    <div className="flex flex-col gap-y-2 w-80">
+      {todos.map((todo) => (
+        <div key={todo.id} className="flex justify-between items-center group">
+          <Todo todo={todo} onChange={() => onChange(todo.id)} />
+          <div>
+            <Edition />
+          </div>
+        </div>
       ))}
     </div>
   );
