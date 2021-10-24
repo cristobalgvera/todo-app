@@ -178,3 +178,6 @@ nbdist/
 
 ### VS Code ###
 .vscode/
+
+### H2 Database ###
+*.db

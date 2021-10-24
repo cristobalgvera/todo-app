@@ -8,14 +8,39 @@ import Todos from '../molecules/todos/Todos';
 
 const TodosLayout = () => {
   const [todos, setTodos] = useState<TodoItem[]>([
-    { id: 1, title: 'Todo 1', completed: false },
-    { id: 2, title: 'Todo 2', completed: true },
+    {
+      id: 1,
+      title: 'Todo 1',
+      completed: false,
+      creationDate: new Date(),
+      updateDate: new Date(),
+    },
+    {
+      id: 2,
+      title: 'Todo 2',
+      completed: true,
+      creationDate: new Date(),
+      updateDate: new Date(),
+    },
+    {
+      id: 3,
+      title: 'Todo 3',
+      completed: false,
+      creationDate: new Date(),
+      updateDate: new Date(),
+    },
   ]);
 
   const handleAddTodo = (title: string) => {
     setTodos((prev) => [
       ...prev,
-      { id: prev.length + 1, title, completed: false },
+      {
+        id: prev.length + 1,
+        title,
+        completed: false,
+        creationDate: new Date(),
+        updateDate: new Date(),
+      },
     ]);
   };
 
