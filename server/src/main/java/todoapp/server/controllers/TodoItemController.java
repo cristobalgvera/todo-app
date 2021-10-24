@@ -8,7 +8,7 @@ import todoapp.server.models.TodoItem;
 import todoapp.server.services.TodoItemService;
 
 @RestController
-@RequestMapping("todo-items")
+@RequestMapping("/v1/todo-items")
 public class TodoItemController {
     private final TodoItemService todoItemService;
 
