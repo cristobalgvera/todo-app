@@ -18,19 +18,19 @@ import java.util.Objects;
 public class TodoItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
+    @Column(name = "identificador", nullable = false)
     private Long id;
 
-    @Column(nullable = false, length = 512)
+    @Column(name = "descripción", nullable = false, length = 512)
     private String title;
 
-    @Column(nullable = false)
+    @Column(name = "vigente", nullable = false)
     private Boolean completed;
 
-    @Column(nullable = false, updatable = false)
+    @Column(name = "fechacreación", nullable = false, updatable = false)
     private Date creationDate;
 
-    @Column()
+    @Column(name = "fechaactualización")
     private Date updateDate;
 
     @PreUpdate
