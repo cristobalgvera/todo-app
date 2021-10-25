@@ -36,7 +36,7 @@ _☝🏻 You don't need any local database engine, Spring Boot will generate an 
 
 ## Unit testing
 
-In order to run **backend** tests, you will need to run
+In order to run **backend** tests, you will need to run the following commands:
 
 ```bash
 # Inside repository folder
@@ -44,6 +44,17 @@ In order to run **backend** tests, you will need to run
 cd server
 gradle test # To avoid in cache test use 'gradle clean test' instead
 ```
+
+In order to run **frontend** tests, you will need to run the following commands:
+
+```bash
+# Inside repository folder
+
+cd client
+yarn test # or npm test
+```
+
+_☝🏻 Testing are applied just in service layer on backend, and just in atomic components on frontend._
 
 ## Swagger UI
 
