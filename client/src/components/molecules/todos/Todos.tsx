@@ -8,10 +8,10 @@ interface TodosProps {
   todos: TodoItem[];
   onToggle: (id: number) => void;
   onEdit: (id: number, title: string) => void;
-  onRemove: (id: number) => void;
+  onDelete: (id: number) => void;
 }
 
-const Todos = ({ todos, onToggle, onEdit, onRemove }: TodosProps) => {
+const Todos = ({ todos, onToggle, onEdit, onDelete }: TodosProps) => {
   const [editing, setEditing] = useState<number | null>(null);
 
   const handleEditing = (id: number | null) => {
@@ -46,7 +46,7 @@ const Todos = ({ todos, onToggle, onEdit, onRemove }: TodosProps) => {
               <Todo todo={todo} onChange={() => onToggle(todo.id)} />
               <TodoActions
                 onClickEdition={() => handleEditing(todo.id)}
-                onRemove={() => onRemove(todo.id)}
+                onDelete={() => onDelete(todo.id)}
               />
             </>
           )}

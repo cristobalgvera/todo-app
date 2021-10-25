@@ -4,4 +4,8 @@ module.exports = {
       plugins: [require('tailwindcss'), require('autoprefixer')],
     },
   },
+  babel: {
+    presets: ['@babel/preset-react', '@babel/preset-env'],
+    plugins: ['@emotion'],
+  },
 };

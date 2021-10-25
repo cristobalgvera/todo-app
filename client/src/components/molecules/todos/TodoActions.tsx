@@ -1,16 +1,16 @@
 import Edition from '../../atoms/todos/Edition';
-import Remove from '../../atoms/todos/Remove';
+import Delete from '../../atoms/todos/Delete';
 
 interface TodoActionsProps {
   onClickEdition: () => void;
-  onRemove: () => void;
+  onDelete: () => void;
 }
 
-const TodoActions = ({ onClickEdition, onRemove }: TodoActionsProps) => {
+const TodoActions = ({ onClickEdition, onDelete }: TodoActionsProps) => {
   return (
     <div className="flex gap-x-3 text-text cursor-pointer transition-all duration-75 ease-in invisible group-hover:visible">
       <Edition onClick={onClickEdition} />
-      <Remove onClick={onRemove} />
+      <Delete onClick={onDelete} />
     </div>
   );
 };
