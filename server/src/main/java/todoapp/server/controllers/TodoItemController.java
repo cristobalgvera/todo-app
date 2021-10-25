@@ -11,7 +11,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/v1/todo-items", produces = "application/json")
-public class TodoItemController {
+public class TodoItemController extends BaseController {
     private final TodoItemService todoItemService;
 
     public TodoItemController(@Autowired TodoItemService todoItemService) {
