@@ -1,4 +1,5 @@
 import React, { createRef, useEffect } from 'react';
+import { useTodoApi } from '../../../hooks/useTodoApi';
 import Button from '../../atoms/forms/Button';
 import Input from '../../atoms/forms/Input';
 
@@ -11,11 +12,13 @@ interface TodoFormProps {
 
 type OnSubmit =
   | {
-      currentTodoId: number;
-      handleUpdate: (id: number, todo: string) => void;
-      cancelEditing: () => void;
+      type: 'create';
     }
-  | { handleCreate: (todo: string) => void };
+  | {
+      type: 'update';
+      currentTodoId: number;
+      cancelEditing: () => void;
+    };
 
 const TodoForm = ({
   onSubmit,
@@ -24,6 +27,10 @@ const TodoForm = ({
   placeholder = 'Your To-do',
 }: TodoFormProps) => {
   const inputRef = createRef<HTMLInputElement>();
+
+  const {
+    actions: { handleAddTodo, handleEditTodo },
+  } = useTodoApi();
 
   useEffect(() => {
     const handleEscapeKey = (e: KeyboardEvent) => {
@@ -42,15 +49,18 @@ const TodoForm = ({
 
     if (!inputRef.current?.value) return;
 
-    const todo = inputRef.current.value.trim();
+    const todoTitle = inputRef.current.value.trim();
 
-    if ('handleCreate' in onSubmit) {
-      onSubmit.handleCreate(todo);
-      return;
+    switch (onSubmit.type) {
+      case 'create':
+        handleAddTodo(todoTitle);
+        break;
+      case 'update':
+        handleEditTodo(onSubmit.currentTodoId, todoTitle).then(() =>
+          onSubmit.cancelEditing(),
+        );
+        break;
     }
-
-    const { currentTodoId, handleUpdate } = onSubmit;
-    handleUpdate(currentTodoId, todo);
   };
 
   return (

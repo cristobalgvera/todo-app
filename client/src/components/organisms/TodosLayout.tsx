@@ -11,29 +11,18 @@ import Todos from '../molecules/todos/Todos';
 
 const TodosLayout = () => {
   const {
-    data: { todos, isLoading, isSuccess, isError },
-    actions: {
-      handleAddTodo,
-      handleDeleteTodo,
-      handleEditTodo,
-      handleToggleTodo,
-    },
+    data: { isLoading, isSuccess, isError },
   } = useTodoApi();
 
   return (
     <AppLayout>
       <Header />
       <Container>
-        <TodoForm onSubmit={{ handleCreate: handleAddTodo }} />
+        <TodoForm onSubmit={{ type: 'create' }} />
         <Divider />
         {isSuccess && (
           <Scrollable>
-            <Todos
-              todos={todos ?? []}
-              onToggle={handleToggleTodo}
-              onEdit={handleEditTodo}
-              onDelete={handleDeleteTodo}
-            />
+            <Todos />
           </Scrollable>
         )}
         {isError && (
