@@ -19,19 +19,27 @@ const TodosLayout = () => {
 
   return (
     <AppLayout>
-      <TodoForm onSubmit={{ handleCreate: handleAddTodo }} />
-      <Divider />
-      {isSuccess && (
-        <Scrollable>
-          <Todos
-            todos={todos ?? []}
-            onToggle={handleToggleTodo}
-            onEdit={handleEditTodo}
-            onDelete={handleDeleteTodo}
-          />
-        </Scrollable>
-      )}
-      <BounceLoader size={50} color={'#fdbdb6'} loading={isLoading} />
+      <h1 className="font-bold text-6xl mb-3 text-secondary-500">
+        To-do{' '}
+        <span className="text-primary-base animate-pulse border-b-2 border-quaternary-700">
+          app
+        </span>
+      </h1>
+      <div className="p-6 rounded bg-quaternary-300 flex flex-col justify-center items-center">
+        <TodoForm onSubmit={{ handleCreate: handleAddTodo }} />
+        <Divider />
+        {isSuccess && (
+          <Scrollable>
+            <Todos
+              todos={todos ?? []}
+              onToggle={handleToggleTodo}
+              onEdit={handleEditTodo}
+              onDelete={handleDeleteTodo}
+            />
+          </Scrollable>
+        )}
+        <BounceLoader size={50} color={'#fdbdb6'} loading={isLoading} />
+      </div>
     </AppLayout>
   );
 };

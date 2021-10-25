@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { TodoItem } from '../../types/TodoItem';
+import { TodoItem } from '../../types/todos/TodoItem';
 import { CreateTodoItem } from '../../types/todos/CreateTodoItem';
 import { UpdateTodoItem } from '../../types/todos/UpdateTodoItem';
 

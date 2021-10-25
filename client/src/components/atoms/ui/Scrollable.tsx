@@ -2,8 +2,8 @@ interface ScrollableProps {
   children: React.ReactNode;
 }
 
-const Scrollable = ({ children }: ScrollableProps) => {
-  return <div className="overflow-y-scroll h-60">{children}</div>;
-};
+const Scrollable = ({ children }: ScrollableProps) => (
+  <div className="overflow-y-scroll px-6 h-60 flex flex-col">{children}</div>
+);
 
 export default Scrollable;
