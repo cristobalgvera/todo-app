@@ -1,6 +1,7 @@
 package todoapp.server.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import todoapp.server.dtos.todoitem.CreateTodoItemDto;
 import todoapp.server.dtos.todoitem.UpdateTitleTodoItemDto;
@@ -10,13 +11,10 @@ import todoapp.server.services.TodoItemService;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping(value = "/v1/todo-items", produces = "application/json")
+@RequestMapping(value = "/v1/todo-items", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequiredArgsConstructor
 public class TodoItemController extends BaseController {
     private final TodoItemService todoItemService;
-
-    public TodoItemController(@Autowired TodoItemService todoItemService) {
-        this.todoItemService = todoItemService;
-    }
 
     @GetMapping
     public Iterable<TodoItem> findAll() {

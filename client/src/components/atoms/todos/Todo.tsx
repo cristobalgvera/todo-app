@@ -1,3 +1,4 @@
+import { formatDate } from '../../../lib/dateFormat';
 import { TodoItem } from '../../../types/todos/TodoItem';
 
 interface TodoProps {
@@ -5,10 +6,15 @@ interface TodoProps {
   onChange: (id: number) => void;
 }
 
-const Todo = ({ todo: { id, title, completed }, onChange }: TodoProps) => {
+const Todo = ({
+  todo: { id, title, completed, creationDate },
+  onChange,
+}: TodoProps) => {
+  const labelTooltip = `${title} (${formatDate(creationDate)})`;
+
   return (
     <label
-      title={title}
+      title={labelTooltip}
       className={`${
         completed && 'line-through text-gray-400'
       } text-text font-bold text-xl flex items-center pr-4 w-80 cursor-pointer`}

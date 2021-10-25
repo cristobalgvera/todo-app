@@ -8,7 +8,9 @@ interface InputProps {
 const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ placeholder, value }, ref) => (
     <div className="flex gap-x-2 items-center">
-      <span className="font-bold text-2xl text-primary-base">&gt;</span>
+      <span className="font-bold text-2xl text-primary-base animate-pulse">
+        &gt;
+      </span>
       <input
         autoFocus
         ref={ref}

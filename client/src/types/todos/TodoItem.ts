@@ -3,5 +3,5 @@ export interface TodoItem {
   title: string;
   completed: boolean;
   creationDate: Date;
-  updateDate: Date;
+  updateDate?: Date;
 }

@@ -13,6 +13,13 @@ export const todosApi = createApi({
     getTodos: builder.query<TodoItem[], void>({
       query: () => '/',
       providesTags: [{ type: 'Todos', id: 'FIND_ALL' }],
+      transformResponse: (todos: TodoItem[]) =>
+        todos.sort((a, b) => {
+          if (a.completed === b.completed)
+            return a.creationDate > b.creationDate ? -1 : 1;
+
+          return a.completed ? 1 : -1;
+        }),
     }),
     createTodo: builder.mutation<TodoItem, CreateTodoItem>({
       query: (createTodoItem) => ({
