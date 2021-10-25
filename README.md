@@ -18,13 +18,14 @@ To run **frontend** app you will need following technologies:
 ```bash
 # Clone this repository
 git clone https://github.com/cristobalgvera/todo-app.git
+cd todo-app
 
 # Start backend server
 cd server
 gradle bootRun
 
 # In another terminal instance
-# open recently repository folder
+# open project repository folder
 
 # Start frontend server
 cd client
@@ -39,7 +40,7 @@ _☝🏻 You don't need any local database engine, Spring Boot will generate an 
 In order to run **backend** tests, you will need to run the following commands:
 
 ```bash
-# Inside repository folder
+# Inside project repository folder
 
 cd server
 gradle test # To avoid in cache test use 'gradle clean test' instead
@@ -48,7 +49,7 @@ gradle test # To avoid in cache test use 'gradle clean test' instead
 In order to run **frontend** tests, you will need to run the following commands:
 
 ```bash
-# Inside repository folder
+# Inside project repository folder
 
 cd client
 yarn test # or npm test
