@@ -34,7 +34,7 @@ yarn start # or npm start
 
 _☝🏻 You don't need any local database engine, Spring Boot will generate an H2 file based database automatically. To change this behavior **application.yml** file needs to be modified._
 
-## Unit testing
+## 🧪 Unit testing
 
 In order to run **backend** tests, you will need to run the following commands:
 
@@ -56,7 +56,7 @@ yarn test # or npm test
 
 _☝🏻 Testing are applied just in service layer on backend, and just in atomic components on frontend._
 
-## Swagger UI
+## 🖥 Swagger UI
 
 When you run **backend** app, you are able to access Swagger UI from `http://localhost:8080/api/swagger-ui/`.
 
