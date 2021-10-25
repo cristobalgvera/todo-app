@@ -1,3 +1,5 @@
+import React from 'react';
+
 interface ScrollableProps {
   children: React.ReactNode;
 }

@@ -1,3 +1,4 @@
+import React from 'react';
 import { FaEdit } from 'react-icons/fa';
 
 interface EditionProps {

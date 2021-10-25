@@ -1,6 +1,8 @@
 import { formatDate } from '../../../lib/dateFormat';
 import { TodoItem } from '../../../types/todos/TodoItem';
 
+import React from 'react';
+
 interface TodoProps {
   todo: TodoItem;
   onChange: (id: number) => void;
