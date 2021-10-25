@@ -45,6 +45,12 @@ cd server
 gradle test # To avoid in cache test use 'gradle clean test' instead
 ```
 
+## Swagger UI
+
+When you run **backend** app, you are able to access Swagger UI from `http://localhost:8080/api/swagger-ui/`.
+
+In there you can see information about classes validation and API endpoints documentation.
+
 ## 🗂 Folder structure
 
 | Folder name | Use               |
