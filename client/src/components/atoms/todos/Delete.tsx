@@ -8,6 +8,7 @@ interface RemoveProps {
 const Delete = ({ onClick }: RemoveProps) => (
   <FaTrash
     onClick={onClick}
+    data-testid="delete-todo"
     className="transition-colors w-6 hover:text-secondary-500"
   />
 );

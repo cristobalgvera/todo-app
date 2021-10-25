@@ -8,6 +8,7 @@ interface EditionProps {
 const Edition = ({ onClick }: EditionProps) => (
   <FaEdit
     onClick={onClick}
+    data-testid="edit-todo"
     className="transition-colors w-6 hover:text-tertiary-500"
   />
 );

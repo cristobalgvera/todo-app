@@ -39,7 +39,7 @@ const Todos = () => {
             />
           ) : (
             <>
-              <Todo todo={todo} onChange={() => handleToggleTodo(todo.id)} />
+              <Todo todo={todo} onToggle={() => handleToggleTodo(todo.id)} />
               <TodoActions
                 onClickEdition={() => handleEditing(todo.id)}
                 onDelete={() => handleDeleteTodo(todo.id)}

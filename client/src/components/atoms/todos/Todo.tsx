@@ -5,12 +5,12 @@ import React from 'react';
 
 interface TodoProps {
   todo: TodoItem;
-  onChange: (id: number) => void;
+  onToggle: (id: number) => void;
 }
 
 const Todo = ({
   todo: { id, title, completed, creationDate },
-  onChange,
+  onToggle,
 }: TodoProps) => {
   const labelTooltip = `${title} (${formatDate(creationDate)})`;
 
@@ -25,7 +25,7 @@ const Todo = ({
         type="checkbox"
         className="text-primary-400 rounded"
         checked={completed}
-        onChange={() => onChange(id)}
+        onChange={() => onToggle(id)}
       />
       <span className="ml-2 truncate">{title}</span>
     </label>
