@@ -8,8 +8,8 @@ To-do basic app developed with Spring Boot and React.
 
 To run **backend** app you will need following technologies:
 
-- Java 11+ _(<17)_
-- Gradle 7.2+
+- Java 17
+- Gradle 7.3
 
 To run **frontend** app you will need following technologies:
 
