@@ -6,7 +6,6 @@ plugins {
 
 group = 'todo-app'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
 
 configurations {
     compileOnly {
@@ -19,19 +18,19 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-actuator:2.5.5'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.5.5'
-    implementation 'org.springframework.boot:spring-boot-starter-data-rest:2.5.5'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator:2.5.6'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.5.6'
+    implementation 'org.springframework.boot:spring-boot-starter-data-rest:2.5.6'
     implementation 'io.springfox:springfox-boot-starter:3.0.0'
     implementation 'io.springfox:springfox-swagger-ui:3.0.0'
-    implementation 'org.springframework.boot:spring-boot-starter-validation:2.5.5'
-    implementation 'org.projectlombok:lombok:1.18.20'
+    implementation 'org.springframework.boot:spring-boot-starter-validation:2.5.6'
+    implementation 'org.projectlombok:lombok:1.18.22'
     compileOnly 'org.projectlombok:lombok:1.18.22'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools:2.5.5'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools:2.5.6'
     runtimeOnly 'com.h2database:h2:1.4.200'
-    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor:2.5.5'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor:2.5.6'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.5'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.6'
 }
 
 test {
